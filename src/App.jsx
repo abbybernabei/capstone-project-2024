@@ -1,11 +1,11 @@
 import React from "react";
+import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 
 function App() {
   return (
     <>
-      <div>
-        <h1>App</h1>
-      </div>
+      <AuthenticatedNavbar /* token={token} setToken={setToken} */ />
+      <div></div>
     </>
   );
 }
