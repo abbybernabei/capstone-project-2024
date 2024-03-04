@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import AllProductsPage from "./components/AllProductsPage";
+import { fetchAllProducts } from "./api";
 
 function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getAllProducts = async () => {
+      try {
+        const productsData = await fetchAllProducts();
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Error fetching products", error);
+      }
+    };
+    getAllProducts();
+  }, []);
+
   return (
     <>
       <div>
-        <h1>App</h1>
+        <Routes>
+          <Route
+            path="/products"
+            element={
+              <AllProductsPage products={products} setProducts={setProducts} />
+            }
+          />
+        </Routes>
       </div>
     </>
   );

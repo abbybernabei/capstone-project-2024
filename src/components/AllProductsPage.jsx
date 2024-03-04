@@ -1,9 +1,13 @@
 import React from "react";
+import ProductCard from "./ProductCard";
+import "./allProducts.css";
 
-const AllProductsPage = () => {
+const AllProductsPage = ({ products }) => {
   return (
-    <div>
-      <h1>All Products Page</h1>
+    <div className="the-products">
+      {products.map((product) => {
+        return <ProductCard key={product.id} product={product} />;
+      })}
     </div>
   );
 };
