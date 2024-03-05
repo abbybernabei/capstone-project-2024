@@ -4,6 +4,7 @@ import AllProductsPage from "./components/AllProductsPage";
 import { fetchAllProducts } from "./api";
 import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 import LoginPage from "./components/LoginPage";
+import RegistrationPage from "./components/RegistrationPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -44,6 +45,7 @@ function App() {
             path="/auth/login"
             element={<LoginPage setToken={setToken} />}
           />
+          <Route path="/users" element={<RegistrationPage />} />
         </Routes>
       </div>
     </>
