@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import AllProductsPage from "./components/AllProductsPage";
 import { fetchAllProducts } from "./api";
+import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <AuthenticatedNavbar /* token={token} setToken={setToken} */ />
       <div>
         <Routes>
           <Route
