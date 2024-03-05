@@ -26,3 +26,48 @@ export const login = async (username, password) => {
     throw error;
   }
 };
+
+export const register = async (
+  email,
+  username,
+  password,
+  firstname,
+  lastname,
+  city,
+  street,
+  number,
+  zipcode,
+  lat,
+  long,
+  phone
+) => {
+  try {
+    const response = await fetch(`${BASE_URL}/users`, {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        username,
+        password,
+        name: {
+          firstname,
+          lastname,
+        },
+        address: {
+          city,
+          street,
+          number,
+          zipcode,
+          geolocation: {
+            lat,
+            long,
+          },
+        },
+        phone,
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("There was an error /POST register", error);
+  }
+};
