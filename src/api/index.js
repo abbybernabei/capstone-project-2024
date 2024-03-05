@@ -12,3 +12,17 @@ export const fetchAllProducts = async () => {
     console.error("There was an error /GET products", error);
   }
 };
+
+export const login = async (username, password) => {
+  try {
+    const response = await fetch(`${BASE_URL}/auth/login`, {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log("There was an error /POST login", error);
+    throw error;
+  }
+};
