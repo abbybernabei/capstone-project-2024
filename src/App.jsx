@@ -23,7 +23,7 @@ function App() {
       <div>
         <Routes>
           <Route
-            path="/products"
+            path="/"
             element={
               <AllProductsPage products={products} setProducts={setProducts} />
             }
