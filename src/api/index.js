@@ -18,10 +18,16 @@ export const login = async (username, password) => {
   try {
     const response = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
     });
     const result = await response.json();
-    return result;
+    return result.token;
   } catch (error) {
     console.log("There was an error /POST login", error);
     throw error;
@@ -45,6 +51,9 @@ export const register = async (
   try {
     const response = await fetch(`${BASE_URL}/users`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         email,
         username,

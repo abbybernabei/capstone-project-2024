@@ -20,22 +20,22 @@ const AuthenticatedNavbar = ({ token, setToken }) => {
         <li className="nav-item">
           {token ? (
             <>
-              <Link to="/logout" className="link">
-                <button onClick={handleLoggoutClick} className="logout-btn">
-                  Log Out{" "}
-                </button>
-              </Link>
               <Link to="/carts" className="link">
-                Cart{" "}
+                Cart
+              </Link>
+              <Link to="/" className="link">
+                <button onClick={handleLoggoutClick} className="logout-btn">
+                  Log Out
+                </button>
               </Link>
             </>
           ) : (
             <>
               <Link to="/users" className="link">
-                Register{" "}
+                Register
               </Link>
-              <Link to="/auth/login" className="link">
-                Login{" "}
+              <Link to="/login" className="link">
+                Login
               </Link>
             </>
           )}

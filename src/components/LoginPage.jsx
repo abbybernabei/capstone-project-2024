@@ -11,8 +11,8 @@ const LoginPage = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const loggedInUser = await login(username, password);
-    setToken(loggedInUser.token);
+    const token = await login(username, password);
+    setToken(token);
 
     setUsername("");
     setPassword("");

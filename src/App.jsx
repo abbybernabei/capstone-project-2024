@@ -9,7 +9,7 @@ import RegistrationPage from "./components/RegistrationPage";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [token, setToken] = useState(localStorage.getItem("token" || null));
 
   useEffect(() => {
     if (token) {
@@ -43,10 +43,7 @@ function App() {
             }
           />
           <Route path="/products/:productId" element={<SingleProductPage />} />
-          <Route
-            path="/auth/login"
-            element={<LoginPage setToken={setToken} />}
-          />
+          <Route path="/login" element={<LoginPage setToken={setToken} />} />
           <Route path="/users" element={<RegistrationPage />} />
         </Routes>
       </div>
