@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d9dcd6;
+  background-color: #f9f9f9;
   padding: 10px 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: #e6e6e6 solid 1px;
 }
 
 .home-link {
@@ -30,6 +31,7 @@
   text-decoration: none;
   color: #2f6690;
   font-weight: bold;
+  padding: 10px;
 }
 
 .link:hover,
@@ -43,8 +45,13 @@
   cursor: pointer;
   color: #2f6690;
   font-weight: bold;
+  padding: 10px;
+  border: solid 1px #2f6690;
+  border-radius: 25px;
 }
 
 .logout-btn:hover {
-  color: #ff4500;
+  background-color: #ff4500;
+  color: white;
+  border-color: #ff4500;
 }
