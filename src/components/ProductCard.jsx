@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./allProducts.css";
 
-const ProductCard = ({ product, isSingleProduct }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="product-container">
       <p className="invisible">{product.category}</p>
