@@ -1,0 +1,52 @@
+.container-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.single-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.single-image-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.single-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.single-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.single-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.single-category {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.single-price {
+  font-size: 1.5em;
+  color: #3a7ca5;
+  margin-bottom: 10px;
+}
+
+.single-description {
+  font-size: 1.2em;
+  color: #777;
+}

@@ -10,6 +10,7 @@ export const fetchAllProducts = async () => {
     return result;
   } catch (error) {
     console.error("There was an error /GET products", error);
+    throw error;
   }
 };
 
@@ -69,5 +70,20 @@ export const register = async (
     return result;
   } catch (error) {
     console.error("There was an error /POST register", error);
+    throw error;
+  }
+};
+
+export const fetchSingleProduct = async (productId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/products/${productId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch product");
+    }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error to fetch product:", error);
+    throw error;
   }
 };

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import AllProductsPage from "./components/AllProductsPage";
-import { fetchAllProducts } from "./api";
+import SingleProductPage from "./components/SingleProductPage";
+import { fetchAllProducts } from "./api/index";
 import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
@@ -41,6 +42,7 @@ function App() {
               <AllProductsPage products={products} setProducts={setProducts} />
             }
           />
+          <Route path="/products/:productId" element={<SingleProductPage />} />
           <Route
             path="/auth/login"
             element={<LoginPage setToken={setToken} />}
