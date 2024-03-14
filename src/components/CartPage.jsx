@@ -1,21 +1,20 @@
 import React from "react";
 import CartItemCard from "./CartItemCard";
+import "./CartPage.css";
 
 const CartPage = ({ cart, products, setCart }) => {
   const getAllItemDetails = (cartItem) =>
     products.find((product) => product.id === cartItem.productId);
 
   return (
-    <div>
-      <h1>My Cart</h1>
+    <div className="cart-container">
+      <h1 className="cart-title">My Cart</h1>
       {cart.map((item) => {
         const productItem = getAllItemDetails(item);
         return (
-          <CartItemCard
-            key={productItem?.id}
-            cartItem={productItem}
-            quantity={item.quantity}
-          />
+          <div className="cart-item" key={item.productId}>
+            <CartItemCard cartItem={productItem} quantity={item.quantity} />
+          </div>
         );
       })}
     </div>
