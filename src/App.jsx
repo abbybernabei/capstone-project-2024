@@ -6,6 +6,7 @@ import { fetchAllProducts } from "./api/index";
 import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 import LoginPage from "./components/LoginPage";
 import CartPage from "./components/CartPage";
+import BillingPage from "./components/BillingPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -80,6 +81,7 @@ function App() {
               <CartPage cart={cart} products={products} setCart={setCart} />
             }
           />
+          <Route path="/checkout" element={<BillingPage />} />
         </Routes>
       </div>
     </>

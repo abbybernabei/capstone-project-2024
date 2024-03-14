@@ -35,7 +35,9 @@ const ProductCard = ({ product, isSingle, cart, setCart }) => {
         <h3 className="product-title">{product.title}</h3>
       </Link>
       <p className="product-price">${product.price}</p>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <button className="checkout-button" onClick={handleAddToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 };
