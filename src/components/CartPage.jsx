@@ -1,10 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CartItemCard from "./CartItemCard";
 import "./CartPage.css";
 
 const CartPage = ({ cart, products, setCart }) => {
   const getAllItemDetails = (cartItem) =>
     products.find((product) => product.id === cartItem.productId);
+
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
 
   return (
     <div className="cart-container">
@@ -17,6 +23,12 @@ const CartPage = ({ cart, products, setCart }) => {
           </div>
         );
       })}
+      <div>
+        <button onClick={handleCheckout} className="checkout-button">
+          {" "}
+          Checkout
+        </button>
+      </div>
     </div>
   );
 };
