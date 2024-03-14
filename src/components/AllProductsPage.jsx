@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./allProducts.css";
 
-const AllProductsPage = ({ products }) => {
+const AllProductsPage = ({ products, cart, setCart }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPriceRange, setSelectedPriceRange] = useState("All");
@@ -103,7 +103,14 @@ const AllProductsPage = ({ products }) => {
       </div>
       <div className="content">
         {sortedProducts.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              cart={cart}
+              setCart={setCart}
+            />
+          );
         })}
       </div>
     </div>

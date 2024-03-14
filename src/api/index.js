@@ -96,3 +96,42 @@ export const fetchSingleProduct = async (productId) => {
     throw error;
   }
 };
+
+export const fetchAllUsers = async (username) => {
+  try {
+    const response = await fetch(`${BASE_URL}/users`);
+    const result = await response.json();
+    const userData = result.find((user) => user.username === username);
+    return userData;
+  } catch (error) {
+    console.error(" Error /GET all users", error);
+  }
+};
+
+export const fetchUserCart = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/carts/user/${id}`);
+    const result = await response.json();
+    return result.products;
+  } catch (error) {
+    console.error("Error getting user cart /GET", error);
+    throw error;
+  }
+};
+
+export const deleteCartProduct = async (cartId, token) => {
+  try {
+    const response = await fetch(`${BASE_URL}/carts/${cartId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error deleting product from cart /DELETE", error);
+    throw error;
+  }
+};

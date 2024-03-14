@@ -20,7 +20,7 @@ const AuthenticatedNavbar = ({ token, setToken }) => {
         <li className="nav-item">
           {token ? (
             <>
-              <Link to="/carts" className="link">
+              <Link to="/cart" className="link">
                 Cart
               </Link>
               <Link to="/" className="link">
@@ -31,9 +31,6 @@ const AuthenticatedNavbar = ({ token, setToken }) => {
             </>
           ) : (
             <>
-              <Link to="/users" className="link">
-                Register
-              </Link>
               <Link to="/login" className="link">
                 Login
               </Link>

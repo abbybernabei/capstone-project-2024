@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../api/index";
+import { login, fetchAllUsers, fetchUserCart } from "../api/index";
 import "./login.css";
 
-const LoginPage = ({ setToken }) => {
+const LoginPage = ({ setToken, setUser, setCart }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -14,9 +14,14 @@ const LoginPage = ({ setToken }) => {
     const token = await login(username, password);
     setToken(token);
 
+    const user = await fetchAllUsers(username);
+    const usersCart = await fetchUserCart(user.id);
+    // console.log("user--->", username, "usersCart--->", usersCart);
+
     setUsername("");
     setPassword("");
-
+    setUser(user);
+    setCart(usersCart);
     navigate("/");
   };
 
