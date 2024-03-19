@@ -11,9 +11,9 @@ import SuccessfulCheckoutPage from "./components/SuccessfulCheckoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState(localStorage.getItem("token" || null));
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart" || []))
+    JSON.parse(localStorage.getItem("cart")) || []
   );
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user" || null))
@@ -31,7 +31,7 @@ function App() {
       localStorage.removeItem("user");
       localStorage.removeItem("cart");
     }
-  }, [token]);
+  }, [token, user, cart]);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -44,6 +44,11 @@ function App() {
     };
     getAllProducts();
   }, []);
+
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
 
   return (
     <>
@@ -82,7 +87,10 @@ function App() {
               <CartPage cart={cart} products={products} setCart={setCart} />
             }
           />
-          <Route path="/checkout" element={<BillingPage />} />
+          <Route
+            path="/checkout"
+            element={<BillingPage clearCart={clearCart} />}
+          />
           <Route path="/successful" element={<SuccessfulCheckoutPage />} />
         </Routes>
       </div>

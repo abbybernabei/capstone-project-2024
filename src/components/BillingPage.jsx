@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BillingPage.css";
 
-const BillingPage = () => {
+const BillingPage = ({ clearCart }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,6 +24,7 @@ const BillingPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    clearCart();
   };
 
   const navigate = useNavigate();

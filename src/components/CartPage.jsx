@@ -8,6 +8,13 @@ const CartPage = ({ cart, products, setCart }) => {
     products.find((product) => product.id === cartItem.productId);
 
   const navigate = useNavigate();
+
+  const handleRemoveItem = (productId) => {
+    const updatedCart = cart.filter((item) => item.productId !== productId);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   const handleCheckout = () => {
     navigate("/checkout");
   };
@@ -20,6 +27,9 @@ const CartPage = ({ cart, products, setCart }) => {
         return (
           <div className="cart-item" key={item.productId}>
             <CartItemCard cartItem={productItem} quantity={item.quantity} />
+            <button onClick={() => handleRemoveItem(item.productId)}>
+              Remove
+            </button>
           </div>
         );
       })}
