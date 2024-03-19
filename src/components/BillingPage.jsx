@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./BillingPage.css";
 
 const BillingPage = () => {
@@ -23,6 +24,11 @@ const BillingPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+  };
+
+  const navigate = useNavigate();
+  const handleSubmitCheckout = () => {
+    navigate("/successful");
   };
 
   return (
@@ -111,7 +117,11 @@ const BillingPage = () => {
               required
             />
           </div>
-          <button className="bill-button" type="submit">
+          <button
+            onClick={handleSubmitCheckout}
+            className="bill-button"
+            type="submit"
+          >
             Submit
           </button>
         </form>

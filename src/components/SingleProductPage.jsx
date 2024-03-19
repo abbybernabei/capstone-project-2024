@@ -7,7 +7,6 @@ import ProductCard from "./ProductCard";
 const SingleProductPage = ({ cart, setCart }) => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -21,10 +20,6 @@ const SingleProductPage = ({ cart, setCart }) => {
     getProduct();
   }, [productId]);
 
-  const handleQuantityChange = (e) => {
-    setQuantity(parseInt(e.target.value));
-  };
-
   if (!product) {
     return <h1>Loading...</h1>;
   }
@@ -32,20 +27,6 @@ const SingleProductPage = ({ cart, setCart }) => {
   return (
     <>
       <ProductCard product={product} isSingle setCart={setCart} cart={cart} />
-      <div className="quantity-select">
-        {" "}
-        <label className="qty" htmlFor="quantity">
-          QTY{" "}
-        </label>{" "}
-        <select id="quantity" value={quantity} onChange={handleQuantityChange}>
-          <option disabled>QTY</option>
-          {[1, 2, 3, 4, 5].map((num) => (
-            <option key={num} value={num}>
-              {num}
-            </option>
-          ))}
-        </select>
-      </div>
     </>
   );
 };
@@ -70,23 +51,6 @@ export default SingleProductPage;
 //           <p className="single-price">${product.price}</p>
 //           <p className="single-description">{product.description}</p>
 
-//           <div className="quantity-select">
-//             <label className="qty" htmlFor="quantity">
-//               QTY
-//             </label>
-//             <select
-//               id="quantity"
-//               value={quantity}
-//               onChange={handleQuantityChange}
-//             >
-//               <option disabled>QTY</option>
-//               {[1, 2, 3, 4, 5].map((num) => (
-//                 <option key={num} value={num}>
-//                   {num}
-//                 </option>
-//               ))}
-//             </select>
-//           </div>
 //         </div>
 //       </div>
 //     )}

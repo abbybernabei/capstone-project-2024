@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SuccessfulCheckoutPage = () => {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate("/");
+  };
+
   return (
     <div>
-      <h1>Successful Checkout Page</h1>
+      <h2>Your checkout was successful!</h2>
+      <button onClick={handleGoBack}>Back to Home</button>
     </div>
   );
 };

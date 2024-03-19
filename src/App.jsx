@@ -7,15 +7,16 @@ import AuthenticatedNavbar from "./components/AuthenticatedNavbar";
 import LoginPage from "./components/LoginPage";
 import CartPage from "./components/CartPage";
 import BillingPage from "./components/BillingPage";
+import SuccessfulCheckoutPage from "./components/SuccessfulCheckoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token" || null));
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
+    JSON.parse(localStorage.getItem("cart" || []))
   );
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
+    JSON.parse(localStorage.getItem("user" || null))
   );
 
   useEffect(() => {
@@ -82,6 +83,7 @@ function App() {
             }
           />
           <Route path="/checkout" element={<BillingPage />} />
+          <Route path="/successful" element={<SuccessfulCheckoutPage />} />
         </Routes>
       </div>
     </>
