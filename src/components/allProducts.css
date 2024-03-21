@@ -96,3 +96,17 @@
 .invisible {
   display: none;
 }
+
+.product-category {
+  font-size: 1.8em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #444;
+  text-align: left;
+}

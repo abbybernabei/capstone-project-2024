@@ -32,27 +32,3 @@ const SingleProductPage = ({ cart, setCart }) => {
 };
 
 export default SingleProductPage;
-
-// <>
-//   <div className="container-page">
-//     {product &&
-//     (
-//       <div className="single-details">
-//         <div className="single-image-container">
-//           <img
-//             className="single-image"
-//             src={product.image}
-//             alt={product.title}
-//           />
-//         </div>
-//         <div className="single-info">
-//           <h2 className="single-title">{product.title}</h2>
-//           <p className="single-category">{product.category}</p>
-//           <p className="single-price">${product.price}</p>
-//           <p className="single-description">{product.description}</p>
-
-//         </div>
-//       </div>
-//     )}
-//   </div>
-// </>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BillingPage.css";
 
-const BillingPage = ({ clearCart }) => {
+const BillingPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,7 +24,6 @@ const BillingPage = ({ clearCart }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    clearCart();
   };
 
   const navigate = useNavigate();
@@ -36,7 +35,7 @@ const BillingPage = ({ clearCart }) => {
     <div className="body">
       <div className="container-log">
         <h2>Billing Information</h2>
-        <form className="form" onSubmit={handleSubmit}>
+        <form id="billingForm" className="form" onSubmit={handleSubmit}>
           <div className="column">
             <div className="input-box">
               <label htmlFor="firstName">First Name:</label>
@@ -119,6 +118,7 @@ const BillingPage = ({ clearCart }) => {
             />
           </div>
           <button
+            form="billingForm"
             onClick={handleSubmitCheckout}
             className="bill-button"
             type="submit"

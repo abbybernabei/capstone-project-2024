@@ -4,7 +4,6 @@ import "./allProducts.css";
 
 const ProductCard = ({ product, isSingle, cart, setCart }) => {
   const [quantity, setQuantity] = useState(1);
-  console.log(cart);
   const handleAddToCart = () => {
     if (quantity > 0) {
       const productId = product.id;
@@ -28,9 +27,7 @@ const ProductCard = ({ product, isSingle, cart, setCart }) => {
 
   return (
     <div className="product-container">
-      {isSingle && <p>{product.category}</p>}
-      {isSingle && <p>{product.description}</p>}
-
+      {isSingle && <p className="product-category">{product.category}</p>}
       <Link to={`/products/${product.id}`}>
         <img
           src={product.image}
@@ -38,10 +35,8 @@ const ProductCard = ({ product, isSingle, cart, setCart }) => {
           className="product-image"
         />
       </Link>
-
-      <Link to={`/products/${product.id}`}>
-        <h3 className="product-title">{product.title}</h3>
-      </Link>
+      <h3 className="product-title">{product.title}</h3>
+      {isSingle && <p className="product-description">{product.description}</p>}
       <p className="product-price">${product.price}</p>
       <div className="quantity-select">
         {" "}
@@ -59,7 +54,7 @@ const ProductCard = ({ product, isSingle, cart, setCart }) => {
       </div>
       <button className="checkout-button" onClick={handleAddToCart}>
         Add to Cart
-      </button>
+      </button>{" "}
     </div>
   );
 };

@@ -34,54 +34,54 @@ export const login = async (username, password) => {
   }
 };
 
-export const register = async (
-  email,
-  username,
-  password,
-  firstname,
-  lastname,
-  city,
-  street,
-  number,
-  zipcode,
-  lat,
-  long,
-  phone
-) => {
-  try {
-    const response = await fetch(`${BASE_URL}/users`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        username,
-        password,
-        name: {
-          firstname,
-          lastname,
-        },
-        address: {
-          city,
-          street,
-          number,
-          zipcode,
-          geolocation: {
-            lat,
-            long,
-          },
-        },
-        phone,
-      }),
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error("There was an error /POST register", error);
-    throw error;
-  }
-};
+// export const register = async (
+//   email,
+//   username,
+//   password,
+//   firstname,
+//   lastname,
+//   city,
+//   street,
+//   number,
+//   zipcode,
+//   lat,
+//   long,
+//   phone
+// ) => {
+//   try {
+//     const response = await fetch(`${BASE_URL}/users`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         email,
+//         username,
+//         password,
+//         name: {
+//           firstname,
+//           lastname,
+//         },
+//         address: {
+//           city,
+//           street,
+//           number,
+//           zipcode,
+//           geolocation: {
+//             lat,
+//             long,
+//           },
+//         },
+//         phone,
+//       }),
+//     });
+//     const result = await response.json();
+//     return result;
+//   } catch (error) {
+//     console.error("There was an error /POST register", error);
+//     throw error;
+//   }
+// };
 
 export const fetchSingleProduct = async (productId) => {
   try {
@@ -112,7 +112,6 @@ export const fetchUserCart = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/carts/${id}`);
     const result = await response.json();
-    console.log("result", result);
     return result.products;
   } catch (error) {
     console.error("Error getting user cart /GET", error);
@@ -120,19 +119,19 @@ export const fetchUserCart = async (id) => {
   }
 };
 
-export const deleteCartProduct = async (cartId, token) => {
-  try {
-    const response = await fetch(`${BASE_URL}/carts/${cartId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error("Error deleting product from cart /DELETE", error);
-    throw error;
-  }
-};
+// export const deleteCartProduct = async (cartId, token) => {
+//   try {
+//     const response = await fetch(`${BASE_URL}/carts/${cartId}`, {
+//       method: "DELETE",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     const result = await response.json();
+//     return result;
+//   } catch (error) {
+//     console.error("Error deleting product from cart /DELETE", error);
+//     throw error;
+//   }
+// };

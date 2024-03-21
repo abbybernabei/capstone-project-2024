@@ -45,11 +45,6 @@ function App() {
     getAllProducts();
   }, []);
 
-  const clearCart = () => {
-    setCart([]);
-    localStorage.removeItem("cart");
-  };
-
   return (
     <>
       <AuthenticatedNavbar token={token} setToken={setToken} />
@@ -87,10 +82,7 @@ function App() {
               <CartPage cart={cart} products={products} setCart={setCart} />
             }
           />
-          <Route
-            path="/checkout"
-            element={<BillingPage clearCart={clearCart} />}
-          />
+          <Route path="/checkout" element={<BillingPage />} />
           <Route path="/successful" element={<SuccessfulCheckoutPage />} />
         </Routes>
       </div>
