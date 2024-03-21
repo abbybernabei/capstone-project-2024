@@ -11,9 +11,9 @@ import SuccessfulCheckoutPage from "./components/SuccessfulCheckoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [token, setToken] = useState(localStorage.getItem("token" || null));
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
+    JSON.parse(localStorage.getItem("cart" || []))
   );
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user" || null))

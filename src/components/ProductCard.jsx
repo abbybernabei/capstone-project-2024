@@ -4,7 +4,7 @@ import "./allProducts.css";
 
 const ProductCard = ({ product, isSingle, cart, setCart }) => {
   const [quantity, setQuantity] = useState(1);
-
+  console.log(cart);
   const handleAddToCart = () => {
     if (quantity > 0) {
       const productId = product.id;
