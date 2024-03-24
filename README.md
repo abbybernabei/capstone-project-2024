@@ -1,9 +1,29 @@
-# React + Vite
+# E-commerce Website - Capstone project 2024
+Website to browse and shop for items
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Visit
+http://comforting-daifuku-406a91.netlify.app
 
-Currently, two official plugins are available:
+# Features to Try
+- Sorting items
+- Filtering items by category and price range
+- Selecting an item to view more details
+- Logging in (username: johnd, password: m38rmF$)
+- Selecting a quantity and adding items to cart
+- Editing the quantity in the cart page
+- Removing items from the cart page
+- Checking out
+- Logging out
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# capstone-project-2024
+# Technologies
+- Front-End: React.js
+- External API: https://fakestoreapi.com
+- Deployment: Nelnet http://comforting-daifuku-406a91.netlify.app
+
+# Authors
+Abigail Bernabei
+
+# Installation
+- To install all dependencies: npm run install
+- To run App: npm run dev
+- Or visit: http://comforting-daifuku-406a91.netlify.app
